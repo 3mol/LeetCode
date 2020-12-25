@@ -1,4 +1,4 @@
-package com.company.hyj.easy;
+package easy;
 
 /**
  * Created by 胡宇靖 on 2019/3/27.

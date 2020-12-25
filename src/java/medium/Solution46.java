@@ -1,4 +1,4 @@
-package com.company.hyj.medium;
+package medium;
 
 import java.util.ArrayList;
 import java.util.List;

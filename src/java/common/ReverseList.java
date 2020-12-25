@@ -1,4 +1,4 @@
-package com.company.hyj.common;
+package common;
 
 /**
  * Created with IntelliJ IDEA.
