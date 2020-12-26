@@ -25,6 +25,7 @@ public class Solution654 {
    * 4 ms , 在所有 Java 提交中击败了
    * 15.44% 的用户
    * 内存消耗： 38.4 MB , 在所有 Java 提交中击败了 89.84% 的用户
+   *
    * @param nums
    * @return
    */
@@ -54,5 +55,36 @@ public class Solution654 {
     TreeNode newRoot = new TreeNode(num);
     newRoot.left = root;
     return newRoot;
+  }
+
+  /* 主函数 */
+  TreeNode batterConstructMaximumBinaryTree(int[] nums) {
+    return build(nums, 0, nums.length - 1);
+  }
+
+  /* 将 nums[lo..hi] 构造成符合条件的树，返回根节点 */
+  TreeNode build(int[] nums, int lo, int hi) {
+    // base case
+    if (lo > hi) {
+      return null;
+    }
+
+    // 找到数组中的最大值和对应的索引
+    int index = -1, maxVal = Integer.MIN_VALUE;
+    for (int i = lo; i <= hi; i++) {
+      if (maxVal < nums[i]) {
+        index = i;
+        maxVal = nums[i];
+      }
+    }
+
+    TreeNode root = new TreeNode(maxVal);
+    // 递归调用构造左右子树
+    int rootLeft = index - 1;
+    int rootRight = index + 1;
+    root.left = build(nums, lo, rootLeft);
+    root.right = build(nums, rootRight, hi);
+
+    return root;
   }
 }
